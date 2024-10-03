@@ -8,5 +8,5 @@ export default function iterateThroughObject(reportWithIterator) {
     }
     idx += 1;
   }
-  return iterateString
+  return iterateString;
 }
