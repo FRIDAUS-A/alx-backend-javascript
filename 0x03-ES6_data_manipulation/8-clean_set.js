@@ -1,9 +1,9 @@
-export default function cleanSet(set, start) {
+export default function cleanSet(set, startString) {
   const arr = [];
   for (const text of set) {
-    if (start === '') start = text; // eslint-disable-line no-param-reassign
+    if (startString === '') startString = text; // eslint-disable-line no-param-reassign
 
-    if (text.startsWith(start)) arr.push(text.slice(start.length));
+    if (text.startsWith(startString)) arr.push(text.slice(startString.length));
   }
   return arr.join('-');
 }
