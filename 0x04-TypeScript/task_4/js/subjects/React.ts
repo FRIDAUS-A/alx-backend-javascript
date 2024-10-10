@@ -1,9 +1,10 @@
+
 namespace Subjects {
 	export interface Teacher {
 		experienceTeachingReact?: number;
 	}
 	export class React extends Subject {
-		constructor(teacher: Teacher){
+		constructor(teacher: Teacher | null){
 			super(teacher);
 		}
 		getRequirements(): string {
@@ -11,7 +12,7 @@ namespace Subjects {
 		}
 
 		getAvailableTeacher() {
-			if (!this.teacher.experienceTeachingReact && this.teacher.experienceTeachingReact > 0) {
+			if (!this.teacher && this.teacher.experienceTeachingReact > 0) {
 				return 'No available teacher';
 			}
 			return `Available Teacher: ${this.teacher.firstName}`;

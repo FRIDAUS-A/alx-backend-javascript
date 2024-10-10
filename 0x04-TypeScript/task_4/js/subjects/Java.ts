@@ -3,7 +3,7 @@ namespace Subjects {
 		experienceTeachingJava?: number;
 	}
 	export class Java extends Subject {
-		constructor(teacher: Teacher){
+		constructor(teacher: Teacher | null){
 			super(teacher);
 		}
 		getRequirements(): string {
@@ -11,7 +11,7 @@ namespace Subjects {
 		}
 
 		getAvailableTeacher() {
-			if (!this.teacher.experienceTeachingJava && this.teacher.experienceTeachingJava > 0) {
+			if (!this.teacher && this.teacher.experienceTeachingJava > 0) {
 				return 'No available teacher';
 			}
 			return `Available Teacher: ${this.teacher.firstName}`;

@@ -1,60 +1,15 @@
-var Director = /** @class */ (function () {
-    function Director() {
-    }
-    Director.prototype.workFromHome = function () {
-        return 'Working from home';
-    };
-    Director.prototype.getCoffeeBreak = function () {
-        return 'Getting a coffee break';
-    };
-    Director.prototype.workDirectorTasks = function () {
-        return 'Getting to director tasks';
-    };
-    return Director;
-}());
-var Teacher = /** @class */ (function () {
-    function Teacher() {
-    }
-    Teacher.prototype.workFromHome = function () {
-        return 'Cannot work from home';
-    };
-    Teacher.prototype.getCoffeeBreak = function () {
-        return 'Cannot have a break';
-    };
-    Teacher.prototype.workTeacherTasks = function () {
-        return 'Getting to work';
-    };
-    return Teacher;
-}());
-function createEmployee(salary) {
-    if (Number(salary) < 500) {
-        return new Teacher();
-    }
-    else {
-        return new Director();
-    }
-}
-function isDirector(employee) {
-    return employee instanceof Director;
-}
-function executeWork(employee) {
-    if (isDirector(employee)) {
-        console.log(employee.workDirectorTasks());
-    }
-    else {
-        console.log(employee.workTeacherTasks());
-    }
-}
-function teachClass(todayClass) {
-    if (todayClass === 'Math') {
-        console.log('Teaching Math');
-    }
-    else if (todayClass === 'History') {
-        console.log('Teaching History');
-    }
-}
-console.log(createEmployee(200));
-executeWork(createEmployee(200));
-executeWork(createEmployee(1000));
-teachClass('Math');
-teachClass('History');
+"use strict";
+/// <reference path="subjects/Teacher.ts" />
+/// <reference path="subjects/Subject.ts" />
+/// <reference path="subjects/Cpp.ts" />
+/// <reference path="subjects/Java.ts" />
+/// <reference path="subjects/React.ts" />
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.react = exports.java = exports.cpp = void 0;
+exports.cpp = new Subjects.Cpp(null);
+exports.java = new Subjects.Java(null);
+exports.react = new Subjects.React(null);
+var cTeacher = { firstName: 'bolu', lastName: 'seidu', experienceTeachingC: 10 };
+exports.cpp.setTeacher = cTeacher;
+console.log(exports.cpp.getRequirements());
+console.log(exports.cpp.getAvailableTeacher());

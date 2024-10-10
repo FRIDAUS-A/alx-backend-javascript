@@ -5,7 +5,7 @@ namespace Subjects {
 
 	export class Cpp extends Subject {
 
-		constructor(teacher: Teacher){
+		constructor(teacher: Teacher | null){
 			super(teacher);
 		}
 		getRequirements(): string {
@@ -13,7 +13,7 @@ namespace Subjects {
 		}
 
 		getAvailableTeacher() {
-			if (!this.teacher.experienceTeachingC && this.teacher.experienceTeachingJava > 0) {
+			if (!this.teacher && this.teacher.experienceTeachingC > 0) {
 				return 'No available teacher';
 			}
 			return `Available Teacher: ${this.teacher.firstName}`;
